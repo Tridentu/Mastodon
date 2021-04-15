@@ -13,7 +13,14 @@
             <img class="mastodon-login-logo" src="images/logo.png">
             <div class="mastodon-login-box" id="login" >
                 <header class="mastodon-login-header">
-                    <select class="mastodon-language-select"></select>
+                    <div class="mastodon-select">
+                        <select class="mastodon-session-select">
+                        </select>
+                    </div>
+                    <div class="mastodon-select">
+                        <select class="mastodon-user-select">
+                        </select>
+                    </div>
                 </header>
                 <aside class="mastodon-login-sidebar">
                     <span class="mastodon-login-sidebar-title">Options</span>
@@ -25,6 +32,17 @@
                     </ul>
                 </aside>
             </div>
+            <div class="mastodon-right-pane">
+                <span class="mastodon-language-ind">{{ LANGUAGE }}</span>
+                <div class="mastodon-select">
+                    <select class="mastodon-layout-select">
+                    </select>
+                </div>
+            </div>
+            <hr/>
+            <p class="mastodon-messages">
+                Lorem Ipsum
+            </p>
         </div>
         <!-- Scripts -->
         <script src="js/jquery-3.6.0.min.js" type="text/javascript"></script>

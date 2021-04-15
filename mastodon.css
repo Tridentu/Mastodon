@@ -62,6 +62,42 @@ body {
     background-color: rgb(249, 248, 249);
 }
 
+.mastodon-messages {
+    width: 50vw;
+    height: 7.5%;
+    position: absolute;
+    left: 25%;
+    top: 90%;
+    font-family: Iosevka;
+    color: red;
+    border-style: solid;
+    border-width: 0.4rem;
+    text-align: center;
+    padding: 0.2rem 0.2rem 0.2rem 0.2rem;
+    border-color: rgb(249, 248, 249);
+}
+
+.mastodon-right-pane {
+    width: 18vw;
+    height: 35vh;
+    position: absolute;
+    left: 80%;
+    top: 25%;
+    border-style: solid;
+    border-width: 0.4rem;
+    text-align: center;
+    padding: 0.2rem 0.2rem 0.2rem 0.2rem;
+    border-color: rgb(249, 248, 249);
+}
+
+.mastodon-right-pane > * {
+    width: 100%;
+    display: block;
+    margin-bottom: 0.15rem;
+    margin-top: 0.15rem;
+}
+
+
 .mastodon-login-header {
     width: 90%;
     left: 5%;
@@ -76,6 +112,26 @@ body {
 
 .mastodon-login-header > * {
     display: inline;
+    width: 25%;
+}
+
+.mastodon-login-header > .mastodon-select > select {
+    width: 25%;
+}
+
+.mastodon-right-pane > .mastodon-select > select {
+    width: 100%;
+}
+
+
+.mastodon-language-ind {
+    font-family: Iosevka;
+    font-size: 1.5rem;
+    color: #fff191;
+    text-decoration: underline;
+    padding-right: .5rem;
+    padding-left: .5rem;
+    vertical-align: middle;
 }
 
 
@@ -103,6 +159,7 @@ body {
     text-align: left;
     color: white;
     list-style-type: none;
+    cursor: pointer;
     font-family: Iosevka;
 
     
@@ -114,3 +171,5 @@ body {
     transition: all 0.75s ease-out;
 
 }
+
+
