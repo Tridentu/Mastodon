@@ -23,14 +23,18 @@ body {
 
 .mastodon-login-box {
     border-color: rgb(249, 248, 249);
-    border-width: 10px;
+    border-width: 1rem;
     border-style: dashed;
     width: 50%;
     height: 50%;
     z-index: 10;
     position: absolute;
     top: 25%;
-    left: 25%;
+    left: 22.5%;
+    padding-top: 0.4rem;
+    padding-bottom: 1.6rem;
+    padding-left: 0.4rem;
+    padding-right: 1.6rem;
 }
 
 .mastodon-login-title {
@@ -56,4 +60,57 @@ body {
     top: 25%;
     
     background-color: rgb(249, 248, 249);
+}
+
+.mastodon-login-header {
+    width: 90%;
+    left: 5%;
+    position: relative;
+    
+    height: 20%;
+    border-bottom-style: solid;
+    border-width: 0.5rem;
+    border-color: rgb(249, 248, 249);
+    
+}
+
+.mastodon-login-header > * {
+    display: inline;
+}
+
+
+.mastodon-login-sidebar {
+    width: 25%;
+    height: 80%;
+    border-right-style: solid;
+    border-width: 0.5rem;
+    border-color: rgb(249, 248, 249);
+    text-align: center;
+}
+
+.mastodon-login-sidebar-title {
+    text-align: center;
+    width: 100%;
+    left: 25%;
+    font-family: Iosevka;
+    font-size: 1.4rem;
+    text-decoration: underline;
+    font-weight: bold;
+    color: white;
+}
+
+.mastodon-login-sidebar-menu {
+    text-align: left;
+    color: white;
+    list-style-type: none;
+    font-family: Iosevka;
+
+    
+}
+.mastodon-login-sidebar-menu > li:hover {
+    text-align: left;
+    color: lightblue;
+    list-style-type: disc;
+    transition: all 0.75s ease-out;
+
 }
