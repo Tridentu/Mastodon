@@ -1,0 +1,59 @@
+
+body {
+ width: 100vw;
+ height: 100vh;
+}
+
+.mastodon-root{
+    width: 100%;
+    height: 100%;
+    background-color: #191919;
+}
+
+
+.mastodon-wallpaper {
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.mastodon-wp-tridentu {
+    background-image: url("wallpapers/login-screen-tridentu.png");
+}
+
+.mastodon-login-box {
+    border-color: rgb(249, 248, 249);
+    border-width: 10px;
+    border-style: dashed;
+    width: 50%;
+    height: 50%;
+    z-index: 10;
+    position: absolute;
+    top: 25%;
+    left: 25%;
+}
+
+.mastodon-login-title {
+    background: #191919;
+    width: 50%;
+    height: 13%;
+    position: absolute;
+    top: 6.25%;
+    left: 25%;
+    text-align: center;
+    vertical-align: center;
+    color: rgb(249, 248, 249);
+    font-size: 4.2rem;
+    font-family: "Iosevka";
+    font-weight: bold;
+}
+
+.mastodon-login-logo {
+    width: 15vw;
+    height: 30vh;
+    position: absolute;
+    left: 5%;
+    top: 25%;
+    
+    background-color: rgb(249, 248, 249);
+}
