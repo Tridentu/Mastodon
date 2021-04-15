@@ -53,28 +53,21 @@ body {
 }
 
 .mastodon-login-logo {
-    width: 15vw;
-    height: 30vh;
+    width: 100%;
+    height: 50%;
     position: absolute;
     left: 5%;
     top: 25%;
-    
     background-color: rgb(249, 248, 249);
 }
 
 .mastodon-messages {
-    width: 50vw;
-    height: 7.5%;
+    width: 100%;
+    height: 66.7%;
     position: absolute;
-    left: 25%;
-    top: 90%;
     font-family: Iosevka;
     color: red;
-    border-style: solid;
-    border-width: 0.4rem;
     text-align: center;
-    padding: 0.2rem 0.2rem 0.2rem 0.2rem;
-    border-color: rgb(249, 248, 249);
 }
 
 .mastodon-right-pane {
@@ -110,13 +103,32 @@ body {
     
 }
 
-.mastodon-login-header > * {
-    display: inline;
-    width: 25%;
+.mastodon-login-col {
+    display: inline;   
 }
 
-.mastodon-login-header > .mastodon-select > select {
-    width: 25%;
+.mastodon-login-col#avatar {
+  float: left;   
+  height: 100%;
+  width:  25%;
+  
+}
+
+.mastodon-login-col#login-form {
+  float: right; 
+  width: 75%;  
+}
+    
+ .mastodon-login-col > .mastodon-select {
+    width: 66.7%;
+    left: 17.5%;
+}
+
+
+.mastodon-login-col > .mastodon-select > select {
+    width: 100%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 
 .mastodon-right-pane > .mastodon-select > select {
@@ -172,4 +184,35 @@ body {
 
 }
 
+.mastodon-login-content {
+    width: 70%;
+    left: 27.5%;
+    top: 25%;
+    position: absolute;
+    height: 70%;
+    text-align: center;
+    background-color: gold;
+}
 
+.mastodon-login-col > * {
+   left: 25%;
+    position: relative;  
+    font-family: Iosevka;
+}
+
+.mastodon-password {
+    width: 47.5%;
+    top: 10%;
+}
+
+.mastodon-login {
+  font-family: Iosevka;
+  display: block;
+  width: 50%;
+  left: 12.5%;
+  height: 10%;
+  position: relative;
+  margin-top: 1rem;
+  background-color: rgb(0, 163, 255);
+  margin-bottom: 1rem;
+}

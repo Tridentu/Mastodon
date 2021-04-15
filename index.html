@@ -10,17 +10,11 @@
         <div class="mastodon-root">
             <div class="mastodon-wallpaper mastodon-wp-tridentu" id="wallpaper"></div>
             <span class="mastodon-login-title">LOGIN</span>
-            <img class="mastodon-login-logo" src="images/logo.png">
             <div class="mastodon-login-box" id="login" >
                 <header class="mastodon-login-header">
-                    <div class="mastodon-select">
-                        <select class="mastodon-session-select">
-                        </select>
-                    </div>
-                    <div class="mastodon-select">
-                        <select class="mastodon-user-select">
-                        </select>
-                    </div>
+                    <p class="mastodon-messages">
+                        Lorem Ipsum
+                    </p>
                 </header>
                 <aside class="mastodon-login-sidebar">
                     <span class="mastodon-login-sidebar-title">Options</span>
@@ -31,6 +25,23 @@
                         <li id="hibernate">Hibernate</li>
                     </ul>
                 </aside>
+                <section class="mastodon-login-content">
+                    <div class="mastodon-login-col" id="avatar">
+                        <img class="mastodon-login-logo" src="images/logo.png">
+                    </div>
+                    <div class="mastodon-login-col" id="login-form">
+                        <div class="mastodon-select">
+                            <select class="mastodon-session-select">
+                            </select>
+                        </div>
+                        <div class="mastodon-select">
+                            <select class="mastodon-user-select">
+                            </select>
+                        </div>
+                    </div>
+                    <input type="password" name="pwd" id="pass" class="mastodon-password">
+                    <button type="button" class="mastodon-login">LOGIN</button>
+                </section>
             </div>
             <div class="mastodon-right-pane">
                 <span class="mastodon-language-ind">{{ LANGUAGE }}</span>
@@ -38,11 +49,8 @@
                     <select class="mastodon-layout-select">
                     </select>
                 </div>
-            </div>
-            <hr/>
-            <p class="mastodon-messages">
-                Lorem Ipsum
-            </p>
+                
+            </div>            
         </div>
         <!-- Scripts -->
         <script src="js/jquery-3.6.0.min.js" type="text/javascript"></script>
