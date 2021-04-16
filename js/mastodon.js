@@ -24,11 +24,42 @@ window.handle_login = function(){
     });  
 };
 
+
+window.autologin_timer_expired = function(){
+    
+};
+
+let user_id = lightdm.users.indexOf(lightdm.select_user);
+let session_id = lightdm.sessions.indexOf(lightdm.default_session);
+
+window.authentication_complete = function(){
+    if(lightdm.is_authenticated){
+      $(".mastodon-login-sidebar-menu").addClass("mastodon-start");
+      $(".mastodon-login-box").addClass("mastodon-start");
+      $(".mastodon-wallpaper").on("transitionend", function(){
+          lightdm.start_session_sync(lightdm.sessions[session_id]);
+      });
+      $(".mastodon-wallpaper").addClass("mastodon-start");
+    } else {
+        show_message("Login failed.", "error");
+        setTimeout(() => {
+            authenticate(lightdm.authentication_user);
+        }, 3000);
+    }
+};
+
+window.authenticate = (user) => {
+    if(lightdm.in_authentication && !(lightdm.authentication_user.length <= 0))
+        lightdm.cancel_authentication();
+    lightdm.authenticate(user);
+};
+
 window.login_lang = "English (US)";
 
 $(function(){
-   // let user_names = lightdm.users;
-   /*$(".mastodon-layout-select").each((item) => {
+   let user_names = lightdm.users;
+   login_lang = lightdm.language;
+   $(".mastodon-layout-select").each((item) => {
       lightdm.layouts.forEach((item2,index) => {
         var opt = new Option(item2.description, item2.name);
         $(opt).html(item2.description);
@@ -42,7 +73,16 @@ $(function(){
         $(opt).data("sessionId",item2.key); 
         item.append(opt);
       });
-   });*/
+   });
+   $(".mastodon-user-select").each((item) => {
+      user_names.forEach((item2,index) => {
+        var opt = new Option(item2.display_name, item2.username);
+        $(opt).html(item2.display_name);
+        item.append(opt);
+      });
+
+    });
+    
    $("#restart").click(function(){
        if(lightdm.can_restart) 
            lightdm.shutdown();
@@ -70,4 +110,16 @@ $(function(){
    $(".mastodon-user-select").select2({
             placeholder: $(".mastodon-user-select").data("mastodonPlaceholder")
    });
+    $($(".mastodon-user-select > option")[user_id]).prop("selected", true");
+    $(".mastodon-user-select").on("select2:select", function(e){
+            let id = e.params.data.id;
+            user_id = id-1;
+            authenticate(user_names[user_id]);
+    });
+    $($(".mastodon-session-select > option")[user_id]).prop("selected", true");
+    $(".mastodon-session-select").on("select2:select", function(e){
+            let id = e.params.data.id;
+            session_id = id - 1;
+    });
+    authenticate(user_names[user_id]);
 });
