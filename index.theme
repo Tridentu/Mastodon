@@ -1,0 +1,6 @@
+[theme]
+name=Mastodon
+description=Mastodon Theme for Tridentu Linux
+engine=lightdm-webkit-greeter
+url=index.html
+session=mast
