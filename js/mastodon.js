@@ -1,4 +1,5 @@
 
+let $ = jQuery;
 window.show_message = function(text, type){
     if(0 === text.length)
         return;
@@ -12,15 +13,15 @@ window.show_message = function(text, type){
 
 window.show_prompt = function(text, type){
     let entry = $(".mastodon-input");
-    entry.val("");
-    entry.attr("type",type);
-    entry.attr("placeholder", text.charAt(0).toUpperCase() + text.slice(1, -1));
+    $(entry).val("");
+    $(entry).attr("type",type);
+    $(entry).attr("placeholder", text.charAt(0).toUpperCase() + text.slice(1, -1));
 };
 
 window.handle_login = function(){
   let input_elem = $(".mastodon-input");
-    input_elem.fadeOut(700, () => {
-         lightdm.respond(input_elem.val()); 
+    $(input_elem).fadeOut(700, () => {
+         lightdm.respond($(input_elem).val()); 
     });  
 };
 
@@ -59,29 +60,16 @@ window.login_lang = "English (US)";
 $(function(){
    let user_names = lightdm.users;
    login_lang = lightdm.language;
-   $(".mastodon-layout-select").each((item) => {
-      lightdm.layouts.forEach((item2,index) => {
-        var opt = new Option(item2.description, item2.name);
-        $(opt).html(item2.description);
-        item.append(opt);
-      });
-   });
-   $(".mastodon-session-select").each((item) => {
-      lightdm.sessions.forEach((item2,index) => {
-        var opt = new Option(item2.name, item2.name);
-        $(opt).html(item2.name);
-        $(opt).data("sessionId",item2.key); 
-        item.append(opt);
-      });
-   });
-   $(".mastodon-user-select").each((item) => {
-      user_names.forEach((item2,index) => {
-        var opt = new Option(item2.display_name, item2.username);
-        $(opt).html(item2.display_name);
-        item.append(opt);
-      });
-
+    lightdm.layouts.forEach((item2,index) => {
+        $(".mastodon-layout-select").append(`<option value="${item2.name}">${item2.description}</option>`);
     });
+    lightdm.sessions.forEach((item2,index) => {
+        $(".mastodon-session-select").append(`<option data-session-id="${item2.key}" value="${item2.key}">${item2.name}</option>`);
+    });
+   user_names.forEach((item2,index) => {
+        $(".mastodon-user-select").append(`<option value="${item2.username}">${item2.display_name}</option>`);
+    });
+
     
    $("#restart").click(function(){
        if(lightdm.can_restart) 
@@ -110,13 +98,13 @@ $(function(){
    $(".mastodon-user-select").select2({
             placeholder: $(".mastodon-user-select").data("mastodonPlaceholder")
    });
-    $($(".mastodon-user-select > option")[user_id]).prop("selected", true");
+    $($(".mastodon-user-select > option")[user_id]).prop("selected", true);
     $(".mastodon-user-select").on("select2:select", function(e){
             let id = e.params.data.id;
             user_id = id-1;
             authenticate(user_names[user_id]);
     });
-    $($(".mastodon-session-select > option")[user_id]).prop("selected", true");
+    $($(".mastodon-session-select > option")[user_id]).prop("selected", true);
     $(".mastodon-session-select").on("select2:select", function(e){
             let id = e.params.data.id;
             session_id = id - 1;
