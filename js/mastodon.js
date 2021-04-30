@@ -7,21 +7,20 @@ window.show_message = function(text, type){
         text = `<span class="mastodon-error">${text}</span>`;
     
     $(".mastodon-messages").append(text);
-    $("mastodon-messages").fadeIn(700);
+    $("mastodon-messages").fadeIn("slow");
     
 };
 
 window.show_prompt = function(text, type){
-    let entry = $(".mastodon-input");
-    $(entry).val("");
-    $(entry).attr("type",type);
-    $(entry).attr("placeholder", text.charAt(0).toUpperCase() + text.slice(1, -1));
+    $(".mastodon-input").val("");
+    $(".mastodon-input").prop("type",type);
+    $(".mastodon-input").prop("placeholder", text.charAt(0).toUpperCase() + text.slice(1, -1));
 };
 
 window.handle_login = function(){
-  let input_elem = $(".mastodon-input");
-    $(input_elem).fadeOut(700, () => {
-         lightdm.respond($(input_elem).val()); 
+  let input_elem = $(".mastodon-input").val();
+    $(".mastodon-input").fadeOut("slow", () => {
+         lightdm.respond(input_elem); 
     });  
 };
 
@@ -30,17 +29,29 @@ window.autologin_timer_expired = function(){
     
 };
 
-let user_id = lightdm.users.indexOf(lightdm.select_user);
-let session_id = lightdm.sessions.indexOf(lightdm.default_session);
+let user_id = 0;
+let session_id = 0;
+
+function hideScreen(cb){
+ $(".mastodon-root").addClass("mastodon-blurred");
+        $(".mastodon-root").animate({
+            opacity: 0,
+        });
+        $(".mastodon-root").fadeOut("slow", function(){
+            if(cb != undefined){
+             cb();   
+            }
+        });   
+}
 
 window.authentication_complete = function(){
     if(lightdm.is_authenticated){
       $(".mastodon-login-sidebar-menu").addClass("mastodon-start");
       $(".mastodon-login-box").addClass("mastodon-start");
-      $(".mastodon-wallpaper").on("transitionend", function(){
-          lightdm.start_session_sync(lightdm.sessions[session_id]);
-      });
       $(".mastodon-wallpaper").addClass("mastodon-start");
+      hideScreen(function(){
+         lightdm.start_session_sync(lightdm.sessions[session_id]); 
+      });
     } else {
         show_message("Login failed.", "error");
         setTimeout(() => {
@@ -53,9 +64,32 @@ window.authenticate = (user) => {
     if(lightdm.in_authentication && !(lightdm.authentication_user.length <= 0))
         lightdm.cancel_authentication();
     lightdm.authenticate(user);
+    $(".mastodon-input").fadeIn("slow", () => {
+        
+    });  
 };
 
 window.login_lang = "English (US)";
+
+function getTime(){
+  var date = new Date();
+  var h = updateTime(date.getHours());
+  var m = updateTime(date.getMinutes());
+  var midday = "AM";
+  midday = (h >= 12) ? "PM" : "AM";
+  h = (h == 0) ? 12 : ((h > 12) ? (h - 12): h);
+  $(".mastodon-clock").text(`${h}:${m} ${midday}`);
+  var t = setTimeout(function(){ getTime() }, 1000);
+};
+
+function updateTime(k) {
+  if (k < 10) {
+    return "0" + k;
+  }
+  else {
+    return k;
+  }
+}
 
 $(function(){
    let user_names = lightdm.users;
@@ -69,23 +103,39 @@ $(function(){
    user_names.forEach((item2,index) => {
         $(".mastodon-user-select").append(`<option value="${item2.username}">${item2.display_name}</option>`);
     });
+    setTimeout(function(){
+        $(".mastodon-root").addClass("mastodon-blurred");
+        $(".mastodon-root").animate({
+            opacity: 1,
+        });
+        $(".mastodon-lock").fadeIn("slow", function(){
+        });
+        $(".mastodon-root").fadeIn("slow", function(){
+        });
+    }, 2500);
+    $(".mastodon-entry").click(function(){
+        $(".mastodon-lock").fadeOut("slow", function(){
+                    $(".mastodon-root").removeClass("mastodon-blurred");
+        });
+    });
+   $("#reboot").click(function(){
+       if(lightdm.can_restart)
+            hideScreen(function(){ lightdm.restart(); });
 
-    
-   $("#restart").click(function(){
-       if(lightdm.can_restart) 
-           lightdm.shutdown();
+        
+       
    });
    $("#sleep").click(function(){
        if(lightdm.can_suspend) 
-            lightdm.suspend();
+            hideScreen(function(){ lightdm.suspend(); });
    });
    $("#shutdown").click(function(){
-        if(lightdm.can_shutdown) 
-            lightdm.shutdown();
+        if(lightdm.can_shutdown)
+            hideScreen(function(){ lightdm.shutdown(); });
    });
    $("#hibernate").click(function(){
         if(lightdm.can_hibernate) 
-            lightdm.hibernate();
+            hideScreen(function(){ lightdm.hibernate(); });
    });   
    $(".mastodon-language-ind").html(window.login_lang);
    $(".mastodon-messages").html("");
@@ -109,5 +159,6 @@ $(function(){
             let id = e.params.data.id;
             session_id = id - 1;
     });
-    authenticate(user_names[user_id]);
+    getTime();
+    authenticate(lightdm.users[user_id].name);
 });
