@@ -2,14 +2,14 @@
 body {
  width: 100vw;
  height: 100vh;
- background-color: #191919;
+ background-color: #2e3440;
 
 }
 
 .mastodon-root{
     width: 100%;
     height: 100%;
-    background-color: #191919;
+    background-color: #2e3440;
     opacity: 0;
 }
 
@@ -26,11 +26,11 @@ body {
 }
 
 .mastodon-wp-tridentu {
-    background-image: url("wallpapers/login-screen-tridentu.png");
+    background-image: url("wallpapers/mountain.jpg");
 }
 
 .mastodon-login-box {
-    border-color: rgb(249, 248, 249);
+    border-color: #e5e9f0;
     border-width: 1rem;
     border-style: dashed;
     width: 50%;
@@ -51,7 +51,7 @@ body {
 }
 
 .mastodon-login-title {
-    background: #191919;
+    background: #2e3440;
     width: 50%;
     height: 13%;
     position: absolute;
@@ -59,9 +59,9 @@ body {
     left: 25%;
     text-align: center;
     vertical-align: center;
-    color: rgb(249, 248, 249);
+    color: #efe9f0;
     font-size: 4.2rem;
-    font-family: "Iosevka";
+    font-family: "Fira Mono for Powerline";
     font-weight: bold;
 }
 
@@ -71,23 +71,23 @@ body {
     position: absolute;
     left: 5%;
     top: 5%;
-    background-color: rgb(249, 248, 249);
+    background-color: #e5e9f0;
 }
 
 .mastodon-messages {
     width: 100%;
     height: 66.7%;
     position: absolute;
-    font-family: Iosevka;
-    color: green;
+    font-family: "Fira Mono for Powerline";
+    color: #a3be8c;
     text-align: center;
 }
 
 span.mastodon-error {
     width: 100%;
     height: 100%;
-    font-family: Iosevka;
-    color: red;
+    font-family: "Fira Mono for Powerline";
+    color: #bf616a;
     text-align: center;
 }
 
@@ -101,7 +101,7 @@ span.mastodon-error {
     border-width: 0.4rem;
     text-align: center;
     padding: 0.2rem 0.2rem 0.2rem 0.2rem;
-    border-color: rgb(249, 248, 249);
+    border-color: ;
 }
 
 .mastodon-right-pane > * {
@@ -109,7 +109,7 @@ span.mastodon-error {
     display: block;
     margin-bottom: 0.15rem;
     margin-top: 0.15rem;
-    font-family: Iosevka;   
+    font-family: "Fira Mono for Powerline";   
 
 }
 
@@ -122,7 +122,7 @@ span.mastodon-error {
     height: 20%;
     border-bottom-style: solid;
     border-width: 0.5rem;
-    border-color: rgb(249, 248, 249);
+    border-color: #e5e9f0;
     
 }
 
@@ -147,7 +147,7 @@ span.mastodon-error {
     left: 7.5%;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
-    font-family: Iosevka;   
+    font-family: "Fira Mono for Powerline";   
     position: relative;
 }
 
@@ -155,7 +155,7 @@ span.mastodon-error {
 .mastodon-login-col > form  .mastodon-select > select {
     width: 100%;
     margin-top: 0.5rem;
-    font-family: Iosevka;   
+    font-family: "Fira Mono for Powerline";   
     margin-bottom: 0.5rem;
 }
 
@@ -165,9 +165,9 @@ span.mastodon-error {
 
 
 .mastodon-language-ind {
-    font-family: Iosevka;
+    font-family: "Fira Mono for Powerline";
     font-size: 1.5rem;
-    color: #fff191;
+    color: #ebcb8b;
     text-decoration: underline;
     padding-right: .5rem;
     padding-left: .5rem;
@@ -180,7 +180,7 @@ span.mastodon-error {
     height: 80%;
     border-right-style: solid;
     border-width: 0.5rem;
-    border-color: rgb(249, 248, 249);
+    border-color: #e5e9f0;
     text-align: center;
 }
 
@@ -188,19 +188,19 @@ span.mastodon-error {
     text-align: center;
     width: 100%;
     left: 25%;
-    font-family: Iosevka;
+    font-family: "Fira Mono for Powerline";
     font-size: 1.4rem;
     text-decoration: underline;
     font-weight: bold;
-    color: white;
+    color: #e5e9f0;
 }
 
 .mastodon-login-sidebar-menu {
     text-align: left;
-    color: white;
+    color: #e5e9f0;
     list-style-type: none;
     cursor: pointer;
-    font-family: Iosevka;
+    font-family: "Fira Mono for Powerline";
     font-size: 1.2rem;
     overflow-x: hidden;
 }
@@ -216,7 +216,7 @@ span.mastodon-error {
 
 .mastodon-login-sidebar-menu > li:hover {
     text-align: left;
-    color: lightblue;
+    color: #88c0d0;
     list-style-type: disc;
     transition: all 0.375s ease-out;
     transform: translateX(10%);
@@ -234,7 +234,7 @@ span.mastodon-error {
 .mastodon-login-col > *{
    left: 7.5%;
     position: relative;  
-    font-family: Iosevka;
+    font-family: "Fira Mono for Powerline";
 }
 
 .mastodon-input {
@@ -245,14 +245,14 @@ span.mastodon-error {
     border-radius: 2px;
     position: relative;  
     margin-top: 0.5rem;
-    font-family: Iosevka;
+    font-family: "Fira Mono for Powerline";
     transition: all .3s ease-out;
     appearance: none;
     box-shadow: none;
     border: none;
 }
 .mastodon-input:focus{
-  border-color: blue;
+  border-color: #5e81ac;
   border-style: solid;
   width: 75%;
   height: 15%;
@@ -262,26 +262,26 @@ span.mastodon-error {
 }
 
 .mastodon-login {
-  font-family: Iosevka;
+  font-family: "Fira Mono for Powerline";
   display: block;
   width: 75%;
   left: 7.5%;
   box-shadow: none;
   border: none;
-  color: white;
+  color: #e5e9f0;
   font-weight: bold;
   font-size: 1.2rem;
   height: 12.5%;
   position: relative;
   padding: 0.4rem 4% !important;
   margin-top: 1rem;
-  background-color: rgb(0, 163, 255);
+  background-color: #5e81ac;
   margin-bottom: 1rem;
   border-radius: 0.2rem;
 }
 
 .select2-results {
-  font-family: Iosevka;   
+  font-family: "Fira Mono for Powerline";   
 }
 
 .mastodon-overlay {
@@ -299,8 +299,8 @@ span.mastodon-error {
     left: 25%;
     top: 15%;
     text-align: center;
-    color: #ffffff;
-    font-family: Iosevka;
+    color: #e5e9f0;
+    font-family: "Fira Mono for Powerline";
     text-transform: uppercase;
     font-weight: bold;
     text-decoration: underline;
@@ -313,33 +313,33 @@ span.mastodon-error {
 }
 
 .mastodon-clock {
-    font-family: Orbitron, Iosevka;
+    font-family: "DejaVu Sans Mono for Powerline";
     position: absolute;
     width: 50%;
     font-size: 4.0rem;
     left: 25%;
     top: 30%;
     text-align: center;
-    color: #ffffff;
+    color: #e5e9f0;
     text-transform: uppercase;
     font-weight: bold;
 }
 
 .mastodon-entry {
-  font-family: Iosevka;
+  font-family: "Fira Mono for Powerline";
   display: block;
   width: 25%;
   left: 37.5%;
   box-shadow: none;
   border: none;
-  color: white;
+  color: #e5e9f0;
   font-weight: bold;
   font-size: 2.4rem;
   height: 10%;
   position: absolute;
   padding: 0.4rem 4% !important;
   margin-top: 1rem;
-  background-color: rgb(0, 163, 255);
+  background-color: #5e81ac;
   margin-bottom: 1rem;
   top: 45%;
   border-radius: 0.2rem;
